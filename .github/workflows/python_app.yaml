@@ -35,13 +35,8 @@ jobs:
         python-version: "3.12"
 
     # TODO: Install uv on the runner
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
-        with:
-          python-version: "3.12"
-      - uses: yezz123/setup-uv@v4
-      - run: uv --version
+    - uses: yezz123/setup-uv@v4
+    - run: uv --version
 
 
     # The next steps use *run* to execute commands on the runner
