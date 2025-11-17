@@ -64,4 +64,4 @@ jobs:
     # TODO: Add steps to run formatting steps and type checking
     - name: Ruff format check
       run: |
-        uvx ruff format --check --diff
+        uv run ruff format --check --diff
