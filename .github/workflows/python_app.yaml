@@ -29,14 +29,14 @@ jobs:
 
     # This step sets up Python on the runner
     # TODO: Change the Python version to 3.12
-    - name: Set up Python 3.12
-      uses: actions/setup-python@v3
+    - name: Set up Python
+      uses: actions/setup-python@v5
       with:
         python-version: "3.12"
 
     # TODO: Install uv on the runner
-    - uses: yezz123/setup-uv@v4
-    - run: uv --version
+      name: Install uv
+      uses: yezz123/setup-uv@v4
 
 
     # The next steps use *run* to execute commands on the runner
@@ -57,10 +57,11 @@ jobs:
 
     # This step runs the linter against the codebase
     # TODO: Replace the run block to use our preferred linter
-    - name: Lint with flake8
+    - name: Ruff lint
       run: |
         uvx ruff check
+
     # TODO: Add steps to run formatting steps and type checking
-    - uses: astral-sh/ruff-action@v3
-      with:
-        args: "format --check --diff"
+    - name: Ruff format check
+      run: |
+        uvx ruff format --check --diff
