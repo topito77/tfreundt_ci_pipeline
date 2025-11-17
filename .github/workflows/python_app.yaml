@@ -35,7 +35,7 @@ jobs:
         python-version: "3.12"
 
     # TODO: Install uv on the runner
-      name: Install uv
+    - name: Install uv
       uses: yezz123/setup-uv@v4
 
 
